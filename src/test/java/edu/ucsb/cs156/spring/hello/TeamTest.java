@@ -62,6 +62,24 @@ public class TeamTest {
         assert !t1.equals(t4);
         assertEquals(t1, t5);
     }
+
+    @Test
+    public void hashCode_returns_correct_value() {
+        // Testing hashcode values being equivalent for equivalent objects
+        Team t1 = new Team();
+        t1.setName("foo");
+        t1.addMember("bar");
+        Team t2 = new Team();
+        t2.setName("foo");
+        t2.addMember("bar");
+        assertEquals(t1.hashCode(), t2.hashCode());
+
+        Team t = new Team();
+        int result = t.hashCode();
+        int expectedResult = 1;
+        assertEquals(expectedResult, result);
+
+    }
    
     // TODO: Add additional tests as needed to get to 100% jacoco line coverage, and
     // 100% mutation coverage (all mutants timed out or killed)
